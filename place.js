@@ -2,12 +2,20 @@ const loadPlaces = function (coords) {
 
     const PLACES = [
         {
-            name: "Your place name",
+            name: "Акимат г.Актобе",
             location: {
-                lat: 0, // add here latitude if using static data
-                lng: 0, // add here longitude if using static data
+                lat: 50.299853, // add here latitude if using static data
+                lng: 57.153119, // add here longitude if using static data
             }
         },
+        {
+            name: "Актюбинский Рельсо-Балочный завод",
+            location: {
+                lat: 50.388076, // add here latitude if using static data
+                lng: 57.153119, // add here longitude if using static data
+            }
+        },
+
     ];
 
     return Promise.resolve(PLACES);

@@ -31,7 +31,7 @@ window.onload = () => {
                     const text = document.createElement('a-link');
                     text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
                     text.setAttribute('title', place.name);
-                    text.setAttribute('href', 'http://www.example.com/');
+                    text.setAttribute('href', `https://www.google.ru/search?q=${place.name}`);
                     text.setAttribute('scale', '20 20 20');
 
                     text.addEventListener('loaded', () => {

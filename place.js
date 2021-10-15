@@ -46,6 +46,8 @@ window.onload = () => {
         loadPlaces(position.coords)
             .then((places) => {
                 places.forEach((place) => {
+                     document.querySelector('#current-coor').innerText = JSON.stringify(position.coords);
+                    
                     const latitude = place.location.lat;
                     const longitude = place.location.lng;
 

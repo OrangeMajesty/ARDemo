@@ -50,7 +50,12 @@ window.onload = () => {
             .then((places) => {
             showMessage("places was getted");
                 places.forEach((place) => {
-                    showMessage(position.coords);
+                    
+                    showMessage({
+                        accuracy: position.coords.accuracy,
+                        latitude: position.coords.latitude,
+                        longitude: position.coords.longitude
+                    });
                     console.log(position.coords);
                     
                     const latitude = place.location.lat;

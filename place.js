@@ -45,7 +45,7 @@ const loadPlaces = function (coords) {
 window.onload = () => {
     const scene = document.querySelector('a-scene');
     return navigator.geolocation.getCurrentPosition(function (position) {
-        getPlaces(position.coords)
+        loadPlaces(position.coords)
             .then((places) => {
                 places.forEach((place) => {
                     console.log(place);

@@ -2,6 +2,13 @@ const loadPlaces = function (coords) {
 
     const PLACES = [
         {
+            name: "Село Сарыажар",
+            location: {
+                lat: 50.515204, // add here latitude if using static data
+                lng: 56.918331, // add here longitude if using static data
+            }
+        },
+        {
             name: "Акимат г.Актобе",
             location: {
                 lat: 50.299853, // add here latitude if using static data

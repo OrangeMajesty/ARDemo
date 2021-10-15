@@ -37,16 +37,21 @@ const loadPlaces = function (coords) {
 
 
 window.onload = () => {
+    showMessage("Start get geopos");
     const scene = document.querySelector('a-scene');
 
     // first get current user location
     return navigator.geolocation.getCurrentPosition(function (position) {
-
+            showMessage("geops was getted");
+         showMessage(position.coords);
         // than use it to load from remote APIs some places nearby
+        showMessage("places is loading");
         loadPlaces(position.coords)
             .then((places) => {
+            showMessage("places was getted");
                 places.forEach((place) => {
-                     document.querySelector('#current-coor').innerText = JSON.stringify(position.coords);
+                    showMessage(position.coords);
+                    console.log(position.coords);
                     
                     const latitude = place.location.lat;
                     const longitude = place.location.lng;
@@ -67,7 +72,8 @@ window.onload = () => {
             })
     },
         (err) => {  
-                    document.querySelector('#current-coor').innerText = JSON.stringify(err);
+        showMessage(err);
+                  
                     console.error('Error in retrieving position', err)
                  },
         {
@@ -77,3 +83,8 @@ window.onload = () => {
         }
     );
 };
+
+function showMessage(message)
+{
+    document.querySelector('#current-coor').innerText = JSON.stringify(message);
+}

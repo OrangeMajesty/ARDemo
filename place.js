@@ -22,6 +22,13 @@ const loadPlaces = function (coords) {
                 lng: 57.153119, // add here longitude if using static data
             }
         },
+        {
+            name: "Казанский собор",
+            location: {
+                lat: 55.798745, // add here latitude if using static data
+                lng: 49.115037, // add here longitude if using static data
+            }
+        },
 
     ];
 

@@ -50,7 +50,11 @@ window.onload = () => {
             .then((places) => {
             showMessage("places was getted");
                 places.forEach((place) => {
-                    
+                    showMessage(
+                        "acc:" + position.coords.accuracy
+                        " lat:" + position.coords.latitude
+                        " lon:" + position.coords.longitude
+                    );
                     showMessage({
                         accuracy: position.coords.accuracy,
                         latitude: position.coords.latitude,

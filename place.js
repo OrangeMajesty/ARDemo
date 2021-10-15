@@ -55,8 +55,8 @@ window.onload = () => {
             showMessage("places was getted");
                 places.forEach((place) => {
                     showMessage(
-                        "acc:" + position.coords.accuracy
-                        " lat:" + position.coords.latitude
+                        "acc:" + position.coords.accuracy +
+                        " lat:" + position.coords.latitude +
                         " lon:" + position.coords.longitude
                     );
                     console.log(position.coords);
@@ -80,7 +80,7 @@ window.onload = () => {
             })
     },
         (err) => {  
-                    showMessage(JSON.stringify(err));
+                    //showMessage(JSON.stringify(err));
                   
                     console.error('Error in retrieving position', err)
                  },

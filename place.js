@@ -80,7 +80,7 @@ window.onload = () => {
             })
     },
         (err) => {  
-        showMessage(err);
+                    showMessage(JSON.stringify(err));
                   
                     console.error('Error in retrieving position', err)
                  },

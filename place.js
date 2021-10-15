@@ -43,7 +43,11 @@ window.onload = () => {
     // first get current user location
     return navigator.geolocation.getCurrentPosition(function (position) {
             showMessage("geops was getted");
-         showMessage(position.coords);
+         showMessage(
+                        "acc:" + position.coords.accuracy
+                        " lat:" + position.coords.latitude
+                        " lon:" + position.coords.longitude
+                    );
         // than use it to load from remote APIs some places nearby
         showMessage("places is loading");
         loadPlaces(position.coords)
@@ -55,11 +59,6 @@ window.onload = () => {
                         " lat:" + position.coords.latitude
                         " lon:" + position.coords.longitude
                     );
-                    showMessage({
-                        accuracy: position.coords.accuracy,
-                        latitude: position.coords.latitude,
-                        longitude: position.coords.longitude
-                    });
                     console.log(position.coords);
                     
                     const latitude = place.location.lat;

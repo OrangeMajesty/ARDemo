@@ -104,7 +104,7 @@ window.onload = () => {
                     };
 
                     text.addEventListener('click', clickListener);                   
-                    scene.appendChild(icon);
+                    scene.appendChild(text);
                 });
             })
     },

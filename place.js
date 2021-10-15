@@ -100,7 +100,7 @@ window.onload = () => {
                 });
             })
     },
-        (err) => console.error('Error in retrieving position', err),
+        (err) => showMessage(JSON.stringify(err)),
         {
             enableHighAccuracy: true,
             maximumAge: 0,

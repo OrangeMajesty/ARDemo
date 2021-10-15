@@ -112,11 +112,7 @@ window.onload = () => {
                 });
             })
     },
-        (err) => {  
-                    //showMessage(JSON.stringify(err));
-                  
-                    console.error('Error in retrieving position', err)
-                 },
+        (err) => console.error('Error in retrieving position', err),
         {
             enableHighAccuracy: true,
             maximumAge: 0,

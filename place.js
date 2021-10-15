@@ -72,18 +72,39 @@ window.onload = () => {
                     const longitude = place.location.lng;
 
                     // add place name
-                    const text = document.createElement('a-link');
+                    const text = document.createElement('a-image');
                     text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
                     text.setAttribute('title', place.name);
                     text.setAttribute('src', 'assets/map-marker.png');
                     text.setAttribute('href', `https://www.google.ru/search?q=${place.name}`);
                     text.setAttribute('scale', '20 20 20');
 
-                    text.addEventListener('loaded', () => {
-                        window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
-                    });
+                     text.addEventListener('loaded', () => window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')));
 
-                    scene.appendChild(text);
+                    const clickListener = function(ev) {
+                        ev.stopPropagation();
+                        ev.preventDefault();
+
+                        const name = ev.target.getAttribute('name');
+
+                        const el = ev.detail.intersection && ev.detail.intersection.object.el;
+
+                        if (el && el === ev.target) {
+                            const label = document.createElement('span');
+                            const container = document.createElement('div');
+                            container.setAttribute('id', 'place-label');
+                            label.innerText = name;
+                            container.appendChild(label);
+                            document.body.appendChild(container);
+
+                            setTimeout(() => {
+                                container.parentElement.removeChild(container);
+                            }, 1500);
+                        }
+                    };
+
+                    text.addEventListener('click', clickListener);                   
+                    scene.appendChild(icon);
                 });
             })
     },

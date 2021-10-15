@@ -44,11 +44,15 @@ const loadPlaces = function (coords) {
 
 
 window.onload = () => {
-    showMessage("Start get geopos");
     const scene = document.querySelector('a-scene');
+    return navigator.geolocation.getCurrentPosition(function (position) {
+        getPlaces(position.coords)
+            .then((places) => {
+                places.forEach((place) => {
+    showMessage("Start get geopos");
+    
 
     // first get current user location
-    return navigator.geolocation.getCurrentPosition(function (position) {
             showMessage("geops was getted");
          showMessage(
                         "acc:" + position.coords.accuracy +
@@ -77,7 +81,7 @@ window.onload = () => {
                     text.setAttribute('title', place.name);
                     text.setAttribute('src', 'assets/map-marker.png');
 //                     text.setAttribute('href', `https://www.google.ru/search?q=${place.name}`);
-                    text.setAttribute('scale', '20 20 20');
+                    text.setAttribute('scale', '20', '20');
 
                      text.addEventListener('loaded', () => window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')));
 

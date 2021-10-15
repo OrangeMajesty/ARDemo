@@ -47,6 +47,13 @@ window.onload = () => {
     return navigator.geolocation.getCurrentPosition(function (position) {
         loadPlaces(position.coords)
             .then((places) => {
+                showMessage("places was getted");
+                showMessage(
+                        "acc:" + position.coords.accuracy +
+                        " lat:" + position.coords.latitude +
+                        " lon:" + position.coords.longitude
+                    );
+                showMessage("places is loading");
                 places.forEach((place) => {
                     console.log(place);
                     let latitude = place.location.lat;

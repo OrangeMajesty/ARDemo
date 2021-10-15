@@ -76,7 +76,7 @@ window.onload = () => {
                     text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
                     text.setAttribute('title', place.name);
                     text.setAttribute('src', 'assets/map-marker.png');
-                    text.setAttribute('href', `https://www.google.ru/search?q=${place.name}`);
+//                     text.setAttribute('href', `https://www.google.ru/search?q=${place.name}`);
                     text.setAttribute('scale', '20 20 20');
 
                      text.addEventListener('loaded', () => window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')));

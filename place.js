@@ -45,19 +45,11 @@ const loadPlaces = function (coords) {
 window.onload = () => {
     const scene = document.querySelector('a-scene');
     return navigator.geolocation.getCurrentPosition(function (position) {
-        loadPlaces(position.coords)
+        getPlaces(position.coords)
             .then((places) => {
-                showMessage("places was getted");
-                showMessage(
-                        "acc:" + position.coords.accuracy +
-                        " lat:" + position.coords.latitude +
-                        " lon:" + position.coords.longitude
-                    );
-                showMessage("places is loading");
                 places.forEach((place) => {
-                    console.log(place);
-                    let latitude = place.location.lat;
-                    let longitude = place.location.lng;
+                    const latitude = place.location.lat;
+                    const longitude = place.location.lng;
 
                     console.log("Your location: lat:" + latitude + ", long: " + longitude + "\n");
 
@@ -100,7 +92,7 @@ window.onload = () => {
                 });
             })
     },
-        (err) => showMessage(JSON.stringify(err)),
+        (err) => console.error('Error in retrieving position', err),
         {
             enableHighAccuracy: true,
             maximumAge: 0,

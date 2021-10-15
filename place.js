@@ -44,8 +44,8 @@ window.onload = () => {
     return navigator.geolocation.getCurrentPosition(function (position) {
             showMessage("geops was getted");
          showMessage(
-                        "acc:" + position.coords.accuracy
-                        " lat:" + position.coords.latitude
+                        "acc:" + position.coords.accuracy+
+                        " lat:" + position.coords.latitude+
                         " lon:" + position.coords.longitude
                     );
         // than use it to load from remote APIs some places nearby

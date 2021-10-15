@@ -66,7 +66,10 @@ window.onload = () => {
                 });
             })
     },
-        (err) => console.error('Error in retrieving position', err),
+        (err) => {  
+                    document.querySelector('#current-coor').innerText = JSON.stringify(err);
+                    console.error('Error in retrieving position', err)
+                 },
         {
             enableHighAccuracy: true,
             maximumAge: 0,
